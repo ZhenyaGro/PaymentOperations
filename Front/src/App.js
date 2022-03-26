@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Requisite from "./components/requisite";
 import PayButton from "./components/PayButton";
 import axios from "axios";
@@ -46,8 +46,11 @@ class App extends React.Component {
       amount: amount
     };
 
-    axios.post('http://localhost:5000/pay', payOp)
+    let result = axios.post('http://localhost:5000/pay', payOp);
 
+    console.log(result);
+    console.log(result.amount);
+    // let res2 = result.then(alert(result.id + " " + result.amount));
 
   };
 
