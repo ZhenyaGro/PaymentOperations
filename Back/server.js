@@ -1,17 +1,16 @@
-import connectDB from './backend/config/db.js';
-import dotenv from 'dotenv';
-import express from 'express';
-import userRoutes from './backend/routes/userRoute.js'
+const express = require("express");
+const app = express();
+const cors = require("cors");
+const mongoose = require("mongoose");
 
-connectDB()
-dotenv.config()
+app.use(cors());
+app.use(express.json());
 
-const app = express()
+mongoose.connect(`mongodb+srv://DataBaseAdmin:password12345@cluster0.c6ngd.mongodb.net/paymentOperations`);
 
-//Creating API for user
-app.use('/api/documents', userRoutes)
 
-const PORT = process.env.PORT || 5000
+app.use("/", require("./backend/routes/payRoute"));
 
-//Express js listen method to run project on http://localhost:5000
-app.listen(PORT, console.log(`App is running in ${process.env.NODE_ENV} mode on port ${PORT}`))
+app.listen(5000, function () {
+  console.log("express server is running on port 5000")
+})

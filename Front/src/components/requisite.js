@@ -1,39 +1,6 @@
 import React, { Component } from "react";
 
-/*
-let cardNumber = React.createRef();
-let expMonth = React.createRef();
-let expYear = React.createRef();
-let cvv = React.createRef();
-let amount = React.createRef();
-
-function setResult() {
-  let resultObj = {
-    cardNumber: cardNumber.current.value,
-    expMonth: expMonth.current.value,
-    expYear: expYear.current.value,
-    cvv: cvv.current.value,
-    amount: amount.current.value
-  };
-  console.log(resultObj.cardNumber);
-  console.log(resultObj.expMonth + " / " + resultObj.expYear);
-  console.log(resultObj.cvv);
-  console.log(resultObj.amount);
-  return resultObj;
-}
-*/
-
 export default class Requisite extends Component {
-  /*
-  constructor(props) {
-    super(props);
-    this.cardNumber = null;
-    this.expMonth = null;
-    this.expYear = null;
-    this.cvv = null;
-    this.amount = null;
-  }
-  */
 
   render() {
     return (
@@ -43,16 +10,6 @@ export default class Requisite extends Component {
         </p>
         <p>
           <input
-            /*
-            ref={
-              (this.props.id === "cardNumber" &&
-                ((ref) => (this.cardNumber = ref))) ||
-              (this.props.id === "expMonth" &&
-                ((ref) => (this.expMonth = ref))) ||
-              (this.props.id === "cvv" && ((ref) => (this.cvv = ref))) ||
-              (this.props.id === "amount" && ((ref) => (this.amount = ref)))
-            }
-            */
             required="true"
             type={(this.props.id === "cvv" && "password") || "tel"}
             inputMode="numeric"

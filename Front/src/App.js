@@ -1,6 +1,7 @@
 import React from "react";
 import Requisite from "./components/requisite";
 import PayButton from "./components/PayButton";
+import axios from "axios";
 
 class App extends React.Component {
   checkInput = async (e) => {
@@ -44,19 +45,10 @@ class App extends React.Component {
       cvv: cvv,
       amount: amount
     };
-    /*
-    let res = await fetch(url, {
-      method: "POST",
-      mode: "CORS",
-      body: {
-        cardNumber: cardNumber,
-        expirationDate: expirationDate,
-        cvv: cvv,
-        amount: amount
-      }
-    });
-    */
-    return alert(JSON.stringify(payOp));
+
+    axios.post('http://localhost:5000/pay', payOp)
+
+
   };
 
   render() {
