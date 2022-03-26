@@ -50,6 +50,7 @@ class App extends React.Component {
 
     console.log(result);
     console.log(result.amount);
+
     // let res2 = result.then(alert(result.id + " " + result.amount));
 
   };
