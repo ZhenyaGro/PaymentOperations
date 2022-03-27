@@ -3,6 +3,9 @@ const express = require("express");
 const router = express.Router();
 const Document = require("../models/documentModel");
 
+let lastDocId;
+let lastDocAm;
+
 router.route("/pay").post((req, res) => {
   const cardNumber = req.body.cardNumber;
   const expirationDate = req.body.expirationDate;
@@ -18,14 +21,7 @@ router.route("/pay").post((req, res) => {
 
   newPay.save();
   console.log(newPay._id + " " + newPay.amount);
-
-  // return { id: newPay._id, amount: newPay.amount };
+  res.send(newPay);
 })
-
-/*
-router.route("/payedSuccess").get((req, res) => {
-  Document.find().then(foundDoc => res.json(foundDoc));
-})
-*/
 
 module.exports = router;

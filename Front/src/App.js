@@ -46,13 +46,19 @@ class App extends React.Component {
       amount: amount
     };
 
-    let result = axios.post('http://localhost:5000/pay', payOp);
-
-    console.log(result);
-    console.log(result.amount);
-
-    // let res2 = result.then(alert(result.id + " " + result.amount));
-
+    axios.post('http://localhost:5000/pay', payOp)
+      .then(response => {
+        console.log(response.data);
+        let answer = {
+          id: response.data._id,
+          amount: response.data.amount,
+          toString() {
+            return `{"id": "${this.id}", "сумма": "${this.amount}"}`;
+          }
+        }
+        alert(answer)
+      })
+      .catch((err) => alert(err));
   };
 
   render() {
